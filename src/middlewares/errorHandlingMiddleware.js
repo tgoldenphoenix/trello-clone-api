@@ -1,8 +1,5 @@
 /**
- * Updated by trungquandev.com's author on Sep 27 2023
- * YouTube: https://youtube.com/@trungquandev
- * "A bit of fragrance clings to the hand that gives flowers!"
- * NOTE: (Muốn hiểu rõ hơn về code trong file này thì vui lòng xem video 55 trong bộ MERN Stack trên kênh Youtube của mình.)
+ * v55
 */
 
 /* eslint-disable no-unused-vars */
@@ -23,7 +20,7 @@ export const errorHandlingMiddleware = (err, req, res, next) => {
   }
   // console.error(responseError)
 
-  // Chỉ khi môi trường là DEV thì mới trả về Stack Trace để debug dễ dàng hơn, còn không thì xóa đi. (Muốn hiểu rõ hơn hãy xem video 55 trong bộ MERN Stack trên kênh Youtube: https://www.youtube.com/@trungquandev)
+  // Chỉ khi môi trường là DEV thì mới trả về Stack Trace để debug dễ dàng hơn, còn không thì xóa đi.
   // console.log('env.BUILD_MODE: ', env.BUILD_MODE)
   if (env.BUILD_MODE !== 'dev') delete responseError.stack
 

@@ -1,8 +1,5 @@
 /**
- * Updated by trungquandev.com's author on Sep 27 2023
- * YouTube: https://youtube.com/@trungquandev
- * "A bit of fragrance clings to the hand that gives flowers!"
- * NOTE: (Muốn hiểu rõ hơn về code trong file này thì vui lòng xem video 54 trong bộ MERN Stack trên kênh Youtube của mình.)
+ * NOTE: code trong file này thì vui lòng xem v54
 */
 
 /**
@@ -10,7 +7,7 @@
  */
 class ApiError extends Error {
   constructor(statusCode, message) {
-    // Gọi tới hàm khởi tạo của class Error (class cha) để còn dùng this (kiến thức OOP lập trình hướng đối tượng căn bản)
+    // Gọi tới hàm khởi tạo của class Error (class cha) để còn dùng this
     // Thằng cha (Error) có property message rồi nên gọi nó luôn trong super cho gọn
     super(message)
 
