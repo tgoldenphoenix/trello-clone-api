@@ -12,9 +12,11 @@ Router.get('/status', (req, res) => {
 })
 
 /** Board APIs */
+// localhost:8017/v1/boards
 Router.use('/boards', boardRoute)
 
 /** Column APIs */
+// localhost:8017/v1/columns
 Router.use('/columns', columnRoute)
 
 /** Cards APIs */

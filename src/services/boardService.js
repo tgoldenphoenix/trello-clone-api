@@ -1,9 +1,4 @@
 /* eslint-disable no-useless-catch */
-/**
- * Updated by trungquandev.com's author on August 17 2023
- * YouTube: https://youtube.com/@trungquandev
- * "A bit of fragrance clings to the hand that gives flowers!"
- */
 
 import { slugify } from '~/utils/formatters'
 import { boardModel } from '~/models/boardModel'
@@ -28,10 +23,11 @@ const createNew = async (reqBody) => {
     // Lấy bản ghi board sau khi gọi (tùy mục đích dự án mà có cần bước này hay không)
     const getNewBoard = await boardModel.findOneById(createdBoard.insertedId)
 
-    // Làm thêm các xử lý logic khác với các Collection khác tùy đặc thù dự án...vv
-    // Bắn email, notification về cho admin khi có 1 cái board mới được tạo...vv
+    // Làm thêm các xử lý logic khác với các Collection khác tùy đặc thù dự án
+    // Bắn email, notification về cho admin khi có 1 cái board mới được tạo
 
     // Trả kết quả về, trong Service luôn phải có return
+    // nếu không request có thể chạy mãi chạy mãi
     return getNewBoard
   } catch (error) { throw error }
 }
@@ -43,13 +39,15 @@ const getDetails = async (boardId) => {
       throw new ApiError(StatusCodes.NOT_FOUND, 'Board not found!')
     }
 
-    // B1: Deep Clone board ra một cái mới để xử lý, không ảnh hưởng tới board ban đầu, tùy mục đích về sau mà có cần clone deep hay không. (video 63 sẽ giải thích)
+    // B1: Deep Clone board ra một cái mới để xử lý, không ảnh hưởng tới board ban đầu, tùy mục đích về sau mà có cần clone deep hay không. (v63)
     // https://www.javascripttutorial.net/javascript-primitive-vs-reference-values/
     const resBoard = cloneDeep(board)
 
     // B2: Đưa card về đúng column của nó
+    // Backend biến đổi data theo yêu cầu của front-end
     resBoard.columns.forEach(column => {
       // Cách dùng .equals này là bởi vì chúng ta hiểu ObjectId trong MongoDB có support method .equals
+      // .equals() is not a javascript built-in. It belongs to Mongo DB
       column.cards = resBoard.cards.filter(card => card.columnId.equals(column._id))
 
       // // Cách khác đơn giản là convert ObjectId về string bằng hàm toString() của JavaScript
