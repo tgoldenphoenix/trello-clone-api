@@ -6,7 +6,7 @@ import ApiError from '~/utils/ApiError'
 // Cấu hình CORS Option trong dự án thực tế (V62)
 export const corsOptions = {
   origin: function (origin, callback) {
-    // Nếu môi trường là local dev thì cho qua luôn
+    // Nếu môi trường là local dev thì cho qua luôn, postman cũng cho qua luôn
     if (env.BUILD_MODE === 'dev') {
       return callback(null, true)
     }
