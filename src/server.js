@@ -26,6 +26,8 @@ const START_SERVER = () => {
 
   // Môi trường Production (cụ thể hiện tại là đang support Render.com)
   if (env.BUILD_MODE === 'production') {
+    // Render tự tạo port của nó, chúng ta không chỉ định port
+    // môi trường production không cần host
     app.listen(process.env.PORT, () => {
       console.log(`3. Production: Hi ${env.AUTHOR}, Back-end Server is running successfully at Port: ${process.env.PORT}`)
     })
