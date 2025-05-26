@@ -4,7 +4,7 @@ export const WHITELIST_DOMAINS = [
 
   // Lưu ý: Đây là domain ví dụ sau khi Deploy Production (xem v75 và v76 để hiểu)
   'https://trello-web-mu.vercel.app',
-  'https://trello-web-sage-psi.vercel.app/'
+  'https://trello-web-sage-psi.vercel.app'
 ]
 
 export const BOARD_TYPES = {
