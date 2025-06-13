@@ -22,6 +22,7 @@ const USER_COLLECTION_SCHEMA = Joi.object({
 
   // active account with gmail
   isActive: Joi.boolean().default(false),
+  // a random-generated string used only once to verify user email
   verifyToken: Joi.string(),
 
   createdAt: Joi.date().timestamp('javascript').default(Date.now),
