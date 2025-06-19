@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes'
 import { userService } from '~/services/userService'
-// import ms from 'ms'
+import ms from 'ms'
 // import ApiError from '~/utils/ApiError'
 
 const createNew = async (req, res, next) => {
@@ -27,19 +27,20 @@ const login = async (req, res, next) => {
      * Đối với cái maxAge - thời gian sống của Cookie thì chúng ta sẽ để tối đa 14 ngày, tùy dự án. Lưu ý thời gian sống của cookie khác với cái thời gian sống của token nhé. Đừng bị nhầm lẫn :D
      */
     // hiện tại chỉ log ra thôi
-    console.log('🐦‍🔥 userController ~ login ~ result:', result)
-    // res.cookie('accessToken', result.accessToken, {
-    //   httpOnly: true,
-    //   secure: true,
-    //   sameSite: 'none',
-    //   maxAge: ms('14 days')
-    // })
-    // res.cookie('refreshToken', result.refreshToken, {
-    //   httpOnly: true,
-    //   secure: true,
-    //   sameSite: 'none',
-    //   maxAge: ms('14 days')
-    // })
+    // console.log('🐦‍🔥 userController ~ login ~ result:', result)
+    res.cookie('accessToken', result.accessToken, {
+      // chỉ được quản lý bởi phía server
+      httpOnly: true,
+      secure: true,
+      sameSite: 'none',
+      maxAge: ms('14 days')
+    })
+    res.cookie('refreshToken', result.refreshToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'none',
+      maxAge: ms('14 days')
+    })
 
     res.status(StatusCodes.OK).json(result)
   } catch (error) { next(error) }
