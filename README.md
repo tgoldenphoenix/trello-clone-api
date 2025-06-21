@@ -1,1 +1,1 @@
-The README can be found in the [front-end repo](https://github.com/tgoldenphoenix/trello-clone-web)
+The README for this project can be found in the [front-end repo](https://github.com/tgoldenphoenix/trello-clone-web)
